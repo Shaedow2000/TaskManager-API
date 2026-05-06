@@ -39,7 +39,7 @@ const post = wrapper(async (req, res) => {
   const { title, text } = req.body;
   const newNote = { title, text };
 
-  await NoteModel.findOneAndUpdate(
+  const newNotes = await NoteModel.findOneAndUpdate(
     { user: userEmail },
     { $push: { notes: newNote } },
     { returnDocument: "after", runValidators: true },
@@ -48,7 +48,7 @@ const post = wrapper(async (req, res) => {
   return res.status(201).json({
     status: 201,
     message: `Note created sucessfully`,
-    data: newNote,
+    data: newNotes,
   });
 });
 
