@@ -9,14 +9,14 @@ const NoteSchema = new mongoose.Schema({
     {
       title: {
         type: String,
-        maxLength: [20, "Exeeded title length limit (max up to 20 characters)"],
+        maxLength: [60, "Exeeded title length limit (max up to 60 characters)"],
         required: true,
       },
       text: {
         type: String,
         maxLength: [
-          200,
-          "Exeeded text length limit (max up to 200 characters)",
+          600,
+          "Exeeded text length limit (max up to 600 characters)",
         ],
         default: "No note taken yet!",
       },
